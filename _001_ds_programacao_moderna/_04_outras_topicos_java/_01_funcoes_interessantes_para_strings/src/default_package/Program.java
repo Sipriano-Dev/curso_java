@@ -1,4 +1,4 @@
-package _01_funcoes_interessantes_para_strings;
+package default_package;
 
 public class Program {
 
