@@ -22,8 +22,25 @@ public class Program {
 		System.out.print("Quantity in stock: ");
 		product.quantity = sc.nextInt();
 		
+		System.out.println();
 		//implicitamente o java ta chamando o product.toString, pois percebe que é um println
-		System.out.println(product);
+		System.out.println("Product data: " + product);
+		
+		System.out.println();
+		System.out.print("Enter the number of products to be added in stock: ");
+		int quantity = sc.nextInt();
+		product.addProduct(quantity);
+		
+		System.out.println();
+		System.out.println("Updated data: " + product);
+		
+		System.out.println();
+		System.out.print("Enter the number of products to be removed from stock: ");
+		//Implementando o número de entrada direto no método
+		product.removeProduct(sc.nextInt());
+		
+		System.out.println();
+		System.out.println("Updated data: " + product);
 		
 		sc.close();
 
