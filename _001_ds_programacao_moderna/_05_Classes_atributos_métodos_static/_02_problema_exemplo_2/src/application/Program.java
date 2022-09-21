@@ -14,14 +14,16 @@ public class Program {
 		
 		Product product = new Product();
 		System.out.println("Enter product data: ");
-		System.out.println("Name: ");
-		product.name = sc.nextLine();//product é a var e name é o campo dentro da var
-		System.out.println("Price: ");
+		System.out.print("Name: ");
+		//product é a var e name é o campo dentro da var
+		product.name = sc.nextLine();
+		System.out.print("Price: ");
 		product.price = sc.nextDouble();
-		System.out.println("Quantity in stock: ");
+		System.out.print("Quantity in stock: ");
 		product.quantity = sc.nextInt();
 		
-		System.out.println(product.name + ", " + product.price + ", " + product.quantity);
+		//implicitamente o java ta chamando o product.toString, pois percebe que é um println
+		System.out.println(product);
 		
 		sc.close();
 

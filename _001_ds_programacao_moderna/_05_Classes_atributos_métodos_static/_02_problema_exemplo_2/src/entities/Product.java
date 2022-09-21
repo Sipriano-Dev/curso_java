@@ -22,5 +22,19 @@ public class Product {
 	public void removeProduct(int quantity) {
 		this.quantity -= quantity;
 	}
+	
+	//toString é um metodo do Object(todas a classes é uma subclasse dela)
+	//chamando o toString estamos fazendo um sobreposição do metodo toString
+	public String toString() {
+		//retorna uma string, então é como o println sem parenteses
+		return name 
+			+ ", $" 
+			//String.format é como o printf
+			+ String.format("%.2f", price) 
+			+ ", " 
+			+ quantity 
+			+ " units, Total: " 
+			+ String.format("%.2f", totalValueInStock());
+	}
 
 }
