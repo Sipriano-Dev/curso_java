@@ -12,19 +12,18 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		Calculator calc = new Calculator();
-
 		System.out.println("Enter radius: ");
 		double radius = sc.nextDouble();
-		// agora que os metodos não não estaticos precisei criar uma instancia pra poder
-		// usar os metodos
-		double c = calc.circunference(radius);
 
-		double v = calc.volume(radius);
+		// agora uso chamando o nome da classe, poir não tem instancia, n precisa pois o
+		// metodo é estático
+		double c = Calculator.circunference(radius);
+
+		double v = Calculator.volume(radius);
 
 		System.out.printf("Circunference: %.2f%n", c);
 		System.out.printf("Volume: %.2f%n", v);
-		System.out.printf("Pi value: %.2f%n", calc.PI);
+		System.out.printf("Pi value: %.2f%n", Calculator.PI);
 
 		sc.close();
 
