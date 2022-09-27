@@ -1,9 +1,15 @@
 package entities;
 
 public class Product {
-	public String name;
-	public double price;
-	public int quantity;
+	private String name;
+	private double price;
+	private int quantity;
+
+	// Quando vc cria outros construtores, você perde o padrão, então precisa
+	// coloca-lo manualmente
+	public Product() {
+
+	}
 
 	// Construtor obriga o dev a já instancia passando esses atributos no programa
 	// principal
@@ -19,6 +25,30 @@ public class Product {
 	public Product(String name, double price) {
 		this.name = name;
 		this.price = price;
+	}
+
+	// Serve para buscar e exibir o nome no programa
+	public String getName() {
+		return name;
+	}
+
+	// Serve para modificar o nome já que os atributos agora só podem ser acessados
+	// pela própria classe, dessa forma tem se a vantagem de colocar regras no
+	// método
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
 	}
 
 	public double totalValueInStock() {

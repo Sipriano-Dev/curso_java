@@ -23,6 +23,11 @@ public class Program {
 		System.out.println();
 		System.out.println("Product data: " + product);
 
+		// pode usar o get pra busca o valor, e o set pra setar um valor, sem acessar
+		// direto os atributos
+		product.setName("Computer");
+		product.setPrice(500.00);
+
 		System.out.println();
 		System.out.print("Enter the number of products to be added in stock: ");
 		int quantity = sc.nextInt();
