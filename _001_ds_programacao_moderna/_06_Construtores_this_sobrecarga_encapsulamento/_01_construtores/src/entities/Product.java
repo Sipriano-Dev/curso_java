@@ -5,12 +5,20 @@ public class Product {
 	public double price;
 	public int quantity;
 
-	// construtor obriga o dev a já instancia passando esses atributos no programa
+	// Construtor obriga o dev a já instancia passando esses atributos no programa
 	// principal
 	public Product(String name, double price, int quantity) {
+		// this referencia o objeto que sera criado
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
+	}
+
+	// Isso é uma sobrecarga de construtor, usar o mesmo construtor com parametros
+	// diferentes
+	public Product(String name, double price) {
+		this.name = name;
+		this.price = price;
 	}
 
 	public double totalValueInStock() {
