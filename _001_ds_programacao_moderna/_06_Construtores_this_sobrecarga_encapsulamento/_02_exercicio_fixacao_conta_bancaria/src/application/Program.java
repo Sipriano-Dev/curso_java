@@ -11,9 +11,11 @@ public class Program {
 
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		//Voce deve criar a variável fora do if pra poder usar ela fora 
+		Account account;
 
 		System.out.print("Enter account number: ");
-		String accountNumber = sc.next();
+		int accountNumber = sc.nextInt();
 
 		sc.nextLine();
 		System.out.print("Enter account holder: ");
@@ -22,8 +24,6 @@ public class Program {
 		System.out.print("Is there na initial deposit (y/n)? ");
 		char answer = sc.next().charAt(0);
 
-		//Voce deve criar a variável fora do if pra poder usar ela fora 
-		Account account;
 		// Fique atento pois o char vc precisa usar aspas simples e pode usar o sinal
 		// ==, já no String aspas duplas e o equals
 		if (answer == 'y') {

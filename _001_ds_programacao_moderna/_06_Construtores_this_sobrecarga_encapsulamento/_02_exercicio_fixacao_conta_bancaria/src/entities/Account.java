@@ -2,7 +2,7 @@ package entities;
 
 public class Account {
 
-	private String accountNumber;
+	private int accountNumber;
 	private String holder;
 	private double balance;
 
@@ -10,14 +10,20 @@ public class Account {
 
 	}
 
-	public Account(String account, String holder, double balance) {
-		this.accountNumber = account;
+	// Ao invés de colocar balance no construtor, colocamos initial deposit, pois
+	// sera um deposito inicial
+	public Account(int accountNumber, String holder, double initialDeposit) {
+		this.accountNumber = accountNumber;
 		this.holder = holder;
-		this.balance = balance;
+		// Ao invés de balance aqui, colocamos o metodo de deposito, já que é um
+		// deposito, assim fica mais consistente, e o balance não é alterado diretamente
+		// se um dia a regra de deposito mudar, só precisa mexer no metodo de deposito e
+		// não no construtor
+		deposit(initialDeposit);
 	}
 
-	public Account(String account, String holder) {
-		this.accountNumber = account;
+	public Account(int accountNumber, String holder) {
+		this.accountNumber = accountNumber;
 		this.holder = holder;
 	}
 
@@ -29,7 +35,7 @@ public class Account {
 		this.holder = holder;
 	}
 
-	public String getAccount() {
+	public int getAccountNumber() {
 		return accountNumber;
 	}
 
