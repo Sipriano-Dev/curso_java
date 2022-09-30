@@ -14,6 +14,7 @@ public class Program {
 		
 		int n = sc.nextInt();
 		
+		//Vetor do tipo classe ao invés de primitivo
 		Product[] vect = new Product[n];
 		
 		//Mais coeso, o próprio vetor sabe o seu tamanho
