@@ -13,16 +13,20 @@ public class Program {
 
 		// o contrário é chamado de unboxing, e precisa usar o cast se for o Object
 		int y = (int) obj;
-		System.out.println(y);//20
+		System.out.println(y);// 20
 		System.out.println("----------------------------------------------------------------------------");
-		
+
 		int n1 = 10;
-		//Usando o Wrapper do int no boxing, no umboxing não necessita cast
+		// Usando o Wrapper do int no boxing, no umboxing não necessita cast
 		Integer obj1 = n1;
-		System.out.println(obj1);//10
-		//como dito não precisa de cast, o java já reconhece que ta tratando o tipo primitivo como tipo classe
+		System.out.println(obj1);// 10
+		// como dito não precisa de cast, o java já reconhece que ta tratando o tipo
+		// primitivo como tipo classe
 		int y2 = obj1;
-		System.out.println(y2);//10
+		System.out.println(y2);// 10
+
+		// Usamos o Wrapper ao inves do primitivo em entidades de sistemas, pra que
+		// possa ser aceito null, já que os primitivos não aceitam
 
 	}
 
