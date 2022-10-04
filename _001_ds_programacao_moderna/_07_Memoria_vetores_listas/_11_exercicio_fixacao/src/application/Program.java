@@ -23,6 +23,13 @@ public class Program {
 			System.out.println("Employee #" + (i + 1) + ":");
 			System.out.print("Id: ");
 			Integer id = sc.nextInt();
+			// Validação pra saber se já existe o id na lista, olhe o método estatico no
+			// final, ta perguntado se é true o hasId(boolean)
+			if (hasId(employees, id)) {
+				System.out.println("Id already taken! Try again: ");
+				System.out.print("Id: ");
+				id = sc.nextInt();
+			}
 			System.out.print("Name: ");
 			sc.nextLine();
 			String name = sc.nextLine();
@@ -58,6 +65,14 @@ public class Program {
 
 		sc.close();
 
+	}
+
+	// Retorna um boolean, caso a filtragem no predicado ache um id igual vai
+	// armazenar em resp caso não vai armazenar null
+	public static boolean hasId(List<Employee> list, int id) {
+		Employee resp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		// A pergunta é se resp tem algo dentro, se tiver é porque é repedito, então vai retorna true
+		return resp != null;
 	}
 
 }

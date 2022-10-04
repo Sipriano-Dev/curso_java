@@ -40,6 +40,8 @@ public class Employee {
 		salary += salary * percent / 100;
 	}
 	
+	//Notação para que se escrever a sobrecarga errada o compilador avisa
+	@Override
 	// O toString não precisa ser alterado pq é uma lista, isso é feito no programa com for
 	public String toString() {
 		return String.format("%d, %s, %.2f", id, name, salary);
