@@ -58,10 +58,8 @@ public class Program {
 
 		System.out.println();
 		System.out.println("List of employees: ");
-		// Usando o toString
-		for (Employee x : employees) {
-			System.out.println(x);
-		}
+		// Usando o toString junto com forEach em uma linha, código top
+		employees.forEach(x -> System.out.println(x));
 
 		sc.close();
 
