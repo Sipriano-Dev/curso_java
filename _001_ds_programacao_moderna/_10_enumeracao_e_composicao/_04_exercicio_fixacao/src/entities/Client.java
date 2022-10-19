@@ -1,12 +1,15 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Client {
 	
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
 	private String name;
 	private String email;
-	private Date BirthDate;
+	private Date birthDate;
 	
 	public Client() {
 		
@@ -15,7 +18,7 @@ public class Client {
 	public Client(String name, String email, Date birthDate) {
 		this.name = name;
 		this.email = email;
-		BirthDate = birthDate;
+		this.birthDate = birthDate;
 	}
 
 	public String getName() {
@@ -35,13 +38,17 @@ public class Client {
 	}
 
 	public Date getBirthDate() {
-		return BirthDate;
+		return birthDate;
 	}
 
 	public void setBirthDate(Date birthDate) {
-		BirthDate = birthDate;
+		this.birthDate = birthDate;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// O sdf mudar o formato da data e hora
+		return name + " (" + sdf.format(birthDate) + ") - " + email + "\n";
+	}
 
 }

@@ -11,7 +11,6 @@ import entities.enums.OrderStatus;
 public class Order {
 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-	private static SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy");
 	
 	private Date moment;
 	private OrderStatus status;
@@ -52,10 +51,6 @@ public class Order {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-
-	public List<OrderItem> getOrderItens() {
-		return orderItens;
-	}
 	
 	public void addItem(OrderItem item) {
 		orderItens.add(item);
@@ -65,8 +60,9 @@ public class Order {
 		orderItens.remove(item);
 	}
 	
-	Double sum = 0.0;
+	
 	public Double total() {
+		Double sum = 0.0;
 		for (OrderItem o : orderItens) {
 			sum += o.subTotal();
 		}
@@ -81,18 +77,10 @@ public class Order {
 		sb.append("Order Status: ");
 		sb.append(status + "\n");
 		sb.append("Client: ");
-		sb.append(client.getName());
-		// O sdf mudar o formato da data e hora
-		sb.append(" (" + sdf2.format(client.getBirthDate()) + ")");
-		sb.append(" - " + client.getEmail() + "\n");
+		sb.append(client);
 		sb.append("Order itens: \n");
 		for (OrderItem o : orderItens) {
-			sb.append(o.getProduct().getName() + ", ");
-			sb.append("$" + o.getPrice() + ", ");
-			sb.append("Quantity: ");
-			sb.append(o.getQuantity() + ", ");
-			sb.append("Subtotal: $");
-			sb.append(o.subTotal() + "\n");
+			sb.append(o + "\n");
 		}
 		sb.append("Total price: $");
 		sb.append(total());
