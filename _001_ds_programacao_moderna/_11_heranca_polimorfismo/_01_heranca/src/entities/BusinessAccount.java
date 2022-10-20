@@ -36,4 +36,10 @@ public class BusinessAccount extends Account {
 		}
 	}
 
+	// O super nao precisa ser usado só em construtores
+	public void withdraw(double amount) {
+		super.withdraw(amount);
+		balance -= +2.0;
+	}
+	
 }
