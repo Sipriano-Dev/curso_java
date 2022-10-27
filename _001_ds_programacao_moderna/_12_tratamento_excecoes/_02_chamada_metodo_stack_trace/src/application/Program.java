@@ -24,7 +24,8 @@ public class Program {
 			System.out.println(vect[position]);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("Invalid position!");
-			// Mostra onde o caminho do erro, como se fosse o erro, de baixo pra cima
+			// Mostra onde o caminho do erro, como se fosse o erro, de baixo pra cima,
+			// programa continua normalmente se tiver tratamento
 			e.printStackTrace();
 			sc.next();
 		} catch (InputMismatchException e) {
