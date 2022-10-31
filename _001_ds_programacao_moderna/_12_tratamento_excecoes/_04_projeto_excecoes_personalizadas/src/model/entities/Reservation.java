@@ -9,8 +9,9 @@ public class Reservation {
 	private Integer roomNumber;
 	private Date checkIn;
 	private Date checkOut;
-	
-	//O static é pra que nao precise criar um sdf pra cada objeto que a applicaçao tiver
+
+	// O static é pra que nao precise criar um sdf pra cada objeto que a applicaçao
+	// tiver
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
@@ -43,17 +44,28 @@ public class Reservation {
 		// tempo, no caso em milissegundos e informa que esta em milissegundos
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 	}
-	
-	public void updateDate(Date checkIn, Date checkOut) {
+
+	public String updateDate(Date checkIn, Date checkOut) {
+
+		Date now = new Date();
+		// Testa se o checkin é antes ou depois da data estipulada, no caso agora
+		if (checkIn.before(now) || checkOut.before(now)) {
+			return "Reservation dates for update must be future dates";
+		}
+		if (checkIn.after(checkOut)) {
+			return "Check-out date must be after check-in date";
+		}
+
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
+		return null;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Room " + roomNumber + ", Check In: " + sdf.format(checkIn)
-		+ ", Check Out: " + sdf.format(checkOut) + ", " + duration() + " Nights";
-		
+		return "Room " + roomNumber + ", Check In: " + sdf.format(checkIn) + ", Check Out: " + sdf.format(checkOut)
+				+ ", " + duration() + " Nights";
+
 	}
 
 }
