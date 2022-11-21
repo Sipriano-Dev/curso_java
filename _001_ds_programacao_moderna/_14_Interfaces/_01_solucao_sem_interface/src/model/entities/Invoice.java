@@ -31,7 +31,7 @@ public class Invoice {
 	
 	public Double getTotalPayment() {
 		// Usar o get tem a vantagem de que se mexer(regras) no get aqui já vai estar pronto
-		return getTotalPayment() - getTax();
+		return getBasicPayment() + getTax();
 	}
 	
 	
