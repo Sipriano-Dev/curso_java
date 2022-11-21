@@ -33,23 +33,25 @@ public class Program {
 		// Como carRental tem uma associaçao com vehicle, vc instancia um vehicle para
 		// poder passa o atributo
 		CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
-		
+
 		System.out.print("Entre com preço por hora: ");
 		Double pricePerHour = sc.nextDouble();
 		System.out.print("Entre com preço por dia: ");
 		Double pricePerDay = sc.nextDouble();
-		
-		// BrazilTaxService instanciado sem passa nada, pra poder usar o metodo desse serviço
-		// Aqui está a mágica da interface, é aqui que é decidido o imposto de qual país, sem precisar mexer muito
+
+		// BrazilTaxService instanciado sem passa nada, pra poder usar o metodo desse
+		// serviço
+		// Aqui está a mágica da interface, é aqui que é decidido o imposto de qual
+		// país, sem precisar mexer muito
+		// "new BrazilTaxService()" Injetando a dependencia
 		RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
-		
+
 		rentalService.processInvoice(cr);
-		
+
 		System.out.println("FATURA: ");
 		System.out.println("Pagamento básico: " + String.format("%.2f", cr.getInvoice().getBasicPayment()));
 		System.out.println("Imposto: " + String.format("%.2f", cr.getInvoice().getTax()));
 		System.out.println("Pagamento total: " + String.format("%.2f", cr.getInvoice().getTotalPayment()));
-		
 
 		sc.close();
 

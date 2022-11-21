@@ -10,9 +10,11 @@ public class RentalService {
 	private Double pricePerHour;
 	private Double pricePerDay;
 
-	// Agora ela só tem dependencia com a interface, fica genérico e nao precisa mecher aqui caso mude o pais
+	// Agora ela só tem dependencia com a interface, fica genérico e nao precisa
+	// mecher aqui caso mude o pais
 	private TaxService taxService;
 
+	// "TaxService taxService" Inverçao de controle, deixa outro instancia sua dependencia
 	public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
 		this.pricePerHour = pricePerHour;
 		this.pricePerDay = pricePerDay;
