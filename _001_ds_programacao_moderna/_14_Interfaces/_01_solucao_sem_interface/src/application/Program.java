@@ -40,6 +40,7 @@ public class Program {
 		Double pricePerDay = sc.nextDouble();
 		
 		// BrazilTaxService instanciado sem passa nada, pra poder usar o metodo desse serviço
+		// Aqui está a mágica da interface, é aqui que é decidido o imposto de qual país, sem precisar mexer muito
 		RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
 		
 		rentalService.processInvoice(cr);
