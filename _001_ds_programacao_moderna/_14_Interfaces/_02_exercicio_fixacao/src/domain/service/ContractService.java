@@ -16,18 +16,19 @@ public class ContractService {
 
 	public void processContract(Contract contract, Integer months) {
 		Double mensalidade = contract.getTotalValue() / months;
-		
-		for (int i=1; i<months+1; i++) {
-			LocalDate dueDate = contract.getDate().plus(i, ChronoUnit.MONTHS);
+
+		for (int i = 1; i <= months; i++) {
+			// Forma mais simples de adicionar meses
+			LocalDate dueDate = contract.getDate().plusMonths(i);
+
 			Double interest = onlinePaymentService.interest(mensalidade, i);
 			Double fee = onlinePaymentService.paymentFee(mensalidade + interest);
 			Double parcela = mensalidade + interest + fee;
-			Installment installment = new Installment(dueDate, parcela);
-			contract.getInstallments().add(installment);
-			
+
+			contract.getInstallments().add(new Installment(dueDate, parcela));
+
 		}
-		
-		
+
 	}
 
 }

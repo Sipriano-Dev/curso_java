@@ -41,8 +41,7 @@ public class Program {
 		
 		System.out.println("Parcelas: ");
 		for (Installment i : contract.getInstallments()) {
-			// Voce pode usar o fmt também pra apresentar de outra forma a data
-			System.out.println(fmt.format(i.getDueDate()) + " - " + i.getAmount());
+			System.out.println(i);
 		}
 		
 		
