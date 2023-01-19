@@ -1,37 +1,24 @@
 package application;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
+import entities.Product;
 
 public class Program {
-
 	public static void main(String[] args) {
-		//TreeMap esta ordenado em ordem alfabética
-		Map<String, String> cookies = new TreeMap<>();
 		
-		cookies.put("username", "Maria");
-		cookies.put("email", "Maria@gmail.com");
-		cookies.put("phone", "99711122");
+		Map<Product, Double> stock = new HashMap<>();
 		
-		//remove do map usando key
-		cookies.remove("email");
-		//vai sobrescrever pois não aceita repetições
-		cookies.put("phone", "99771133");
+		Product p1 = new Product("Tv", 900.0);
+		Product p2 = new Product("Notebook", 1200.0);
+		Product p3 = new Product("Tablet", 400.0);
 		
-		System.out.println("Contains 'phone' key: " + cookies.containsKey("phone"));
-		System.out.println("Phone number: " + cookies.get("phone"));
-		//retorna null quando não existe
-		System.out.println("Email: " + cookies.get("email"));
-		System.out.println("Size: " + cookies.size());
+		stock.put(p1, 10000.0);
+		stock.put(p2, 20000.0);
+		stock.put(p3, 15000.0);
 		
-		System.out.println("ALL COOKIES");
+		Product ps = new Product("Tv", 900.0);
 		
-		//keySet é um metodo do map para trazer o conjunto set 
-		for(String key: cookies.keySet()) {
-			//Mostra a key e depois na lista busca o valor usando a key
-			System.out.println(key + ": " + cookies.get(key));
-		}
-
+		System.out.println("Contains 'ps' key: " + stock.containsKey(ps));
 	}
-
 }
