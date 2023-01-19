@@ -1,4 +1,4 @@
-package entities;
+package application;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,6 +8,8 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+
+import entities.LogEntry;
 
 public class Program {
 
